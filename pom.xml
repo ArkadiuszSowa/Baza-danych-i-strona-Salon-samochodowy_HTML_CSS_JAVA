@@ -21,7 +21,17 @@
     </parent>
 
     <dependencies>
-
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.6.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
@@ -31,6 +41,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -44,9 +55,10 @@
             <scope>system</scope>
 
             <!--            tutaj nalezy wpisac sciezke pliku ojdbc-->
-            <systemPath>G:/ProjektyProgramowanie/Salon Samochodowy/OJDBC/ojdbc10.jar</systemPath>
+            <systemPath>C:/Programowanie/jdbc/ojdbc10.jar</systemPath>
 
         </dependency>
+
 
     </dependencies>
 
