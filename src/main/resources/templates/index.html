@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:th="http://www.w3.org/1999/xhtml"
+      xsi:schemaLocation="hhtp://www.w3.org/1999/xhtml ">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>BuraSowa Company</title>
+</head>
+<body>
+
+<div algin="center">
+
+    <h1>Car Record</h1>
+
+  <table border="1" cellpadding="10">
+      <!-- Table header -->
+      <thead>
+<tr>
+    <th>ID</th>
+    <th>Available</th>
+    <th>Price</th>
+    <th>Production Year</th>
+</tr>
+<!-- Table body-->
+<tbody>
+  <tr th:each="car : ${carList}">
+      <td th:text="${car.id}">ID</td>
+      <td th:text="${car.available}">Available</td>
+      <td th:text="${car.price}">Price</td>
+      <td th:text="${car.production_year}">Year of production</td>
+
+  </tr>
+
+  </tbody>
+
+</thead>
+
+  </table>
+
+    </div>
+
+</body>
+</html>
