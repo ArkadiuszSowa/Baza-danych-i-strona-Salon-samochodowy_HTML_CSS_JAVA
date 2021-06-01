@@ -1,80 +1,68 @@
 package bdbt_wt_proj;
 
-import java.util.Arrays;
-
 public class Car {
-    private int id;
-    private boolean available;
-    private int production_year;
-    private int price;
-    private char[] nr_vin = new char [17];
+    private int id_pojazdu;
+    private boolean dostepnosc;
+    private int rok_produkcji;
+    private int cena;
     private float engine_capacity;
     private float power;
     private String fuel_type;
-    private int number_of_seats;
     private String type;
-    private String gearbox;
+
 
     public Car(){
 
     }
 
 
-    public Car(int id, boolean available, int production_year, int price, char[] nr_vin, float engine_capacity, float power, String fuel_type, int number_of_seats, String type, String gearbox) {
+    public Car(int id_pojazdu, boolean dostepnosc, int rok_produkcji, int price, float engine_capacity, float power, String fuel_type, String type) {
         super (); //jemu to eclips dopisał więc ja też wstawiam
-        this.id = id;
-        this.available = available;
-        this.production_year = production_year;
-        this.price = price;
-        this.nr_vin = nr_vin;
+        this.id_pojazdu = id_pojazdu;
+        this.dostepnosc = dostepnosc;
+        this.rok_produkcji = rok_produkcji;
+        this.cena = price;
         this.engine_capacity = engine_capacity;
         this.power = power;
         this.fuel_type = fuel_type;
-        this.number_of_seats = number_of_seats;
         this.type = type;
-        this.gearbox = gearbox;
+
     }
 
     //Geters and setters
-    public int getId() {
-        return id;
+    public int getId_pojazdu() {
+        return id_pojazdu;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_pojazdu(int id_pojazdu) {
+        this.id_pojazdu = id_pojazdu;
     }
 
-    public boolean isAvailable() {
-        return available;
+    public boolean isDostepnosc() {
+        return dostepnosc;
     }
 
-    public void setAvailable(boolean available) {
-        this.available = available;
+    public void setDostepnosc(boolean dostepnosc) {
+        this.dostepnosc = dostepnosc;
     }
 
-    public int getProduction_year() {
-        return production_year;
+    public int getRok_produkcji() {
+        return rok_produkcji;
     }
 
-    public void setProduction_year(int production_year) {
-        this.production_year = production_year;
+    public void setRok_produkcji(int rok_produkcji) {
+        this.rok_produkcji = rok_produkcji;
     }
 
-    public int getPrice() {
-        return price;
+    public int getCena() {
+        return cena;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setCena(int cena) {
+        this.cena = cena;
     }
 
-    public char[] getNr_vin() {
-        return nr_vin;
-    }
 
-    public void setNr_vin(char[] nr_vin) {
-        this.nr_vin = nr_vin;
-    }
 
     public float getEngine_capacity() {
         return engine_capacity;
@@ -100,13 +88,7 @@ public class Car {
         this.fuel_type = fuel_type;
     }
 
-    public int getNumber_of_seats() {
-        return number_of_seats;
-    }
 
-    public void setNumber_of_seats(int number_of_seats) {
-        this.number_of_seats = number_of_seats;
-    }
 
     public String getType() {
         return type;
@@ -116,29 +98,20 @@ public class Car {
         this.type = type;
     }
 
-    public String getGearbox() {
-        return gearbox;
-    }
 
-    public void setGearbox(String gearbox) {
-        this.gearbox = gearbox;
-    }
 
    //Generate to String
     @Override
     public String toString() {
         return "Car{" +
-                "id=" + id +
-                ", available=" + available +
-                ", production_year=" + production_year +
-                ", price=" + price +
-                ", nr_vin=" + Arrays.toString(nr_vin) +
+                "id=" + id_pojazdu +
+                ", available=" + dostepnosc +
+                ", production_year=" + rok_produkcji +
+                ", price=" + cena +
                 ", engine_capacity=" + engine_capacity +
                 ", power=" + power +
                 ", fuel_type='" + fuel_type + '\'' +
-                ", number_of_seats=" + number_of_seats +
                 ", type='" + type + '\'' +
-                ", gearbox='" + gearbox + '\'' +
                 '}';
     }
 }

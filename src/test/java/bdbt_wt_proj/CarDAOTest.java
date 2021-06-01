@@ -14,7 +14,7 @@ class CarDAOTest extends Object {
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
         DriverManagerDataSource dataSource=new DriverManagerDataSource();
-        dataSource.setUrl("jdbc:oracle:thin:@ora3.elka.pw.edu.pl:1521:xe");
+        dataSource.setUrl("jdbc:oracle:thin:@ora3.elka.pw.edu.pl:1521:ora3inf");
         dataSource.setUsername("asowa");
         dataSource.setPassword("asowa");
         dataSource.setDriverClassName("oracle.jdbc.OracleDriver");
@@ -25,7 +25,7 @@ class CarDAOTest extends Object {
     @org.junit.jupiter.api.Test
     void list() {
         List<Car> listCar = dao.list();
-        assertTrue(listCar.isEmpty());
+        assertFalse(listCar.isEmpty());
     }
 
     @org.junit.jupiter.api.Test

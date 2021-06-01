@@ -21,6 +21,7 @@ public class CarDAO {
     public List<Car> list(){
         String sql="SELECT * FROM POJAZDY";
         List<Car> listCar=jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Car.class));
+        System.out.println(listCar);
         return listCar;
     }
 

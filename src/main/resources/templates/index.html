@@ -25,10 +25,10 @@
 <!-- Table body-->
 <tbody>
   <tr th:each="car : ${carList}">
-      <td th:text="${car.id}">ID</td>
-      <td th:text="${car.available}">Available</td>
-      <td th:text="${car.price}">Price</td>
-      <td th:text="${car.production_year}">Year of production</td>
+      <td th:text="${car.id-pojazdu}">ID</td>
+      <td th:text="${car.dostepnosc}">Available</td>
+      <td th:text="${car.cena}">Price</td>
+      <td th:text="${car.rok_produkcji}">Year of production</td>
 
   </tr>
 
