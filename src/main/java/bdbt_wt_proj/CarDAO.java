@@ -3,6 +3,8 @@ package bdbt_wt_proj;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -24,10 +26,39 @@ public class CarDAO {
         System.out.println(listCar);
         return listCar;
     }
+    public List<Modele> list_modele(){
+        String sql= "Select id_modelu, id_marki from modele";
+        List<Modele> listModele=jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Modele.class));
+        System.out.println(listModele);
+        return listModele;
+    }
+    public List<Marki> list_marki(){
+        String sql= "Select id_marki from marki";
+        List<Marki> listMarki=jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Marki.class));
+        System.out.println(listMarki);
+        return listMarki;
+    }
+
+
+    public void save_marki(Marki marki){
+        SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
+        insertActor.withTableName("marki").usingColumns("id_marki", "nazwa_marki");
+        BeanPropertySqlParameterSource param_marka = new BeanPropertySqlParameterSource(marki);
+        insertActor.execute(param_marka);
+    }
+    public void save_modele(Modele modele){
+        SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
+        insertActor.withTableName("modele").usingColumns("id_modelu","nazwa_modelu","id_marki");
+        BeanPropertySqlParameterSource param_model = new BeanPropertySqlParameterSource(modele);
+        insertActor.execute(param_model);
+    }
 
     //insert
-    public void save(Car car){
-
+    public void save_car(Car car){
+        SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
+        insertActor.withTableName("pojazdy").usingColumns("id_pojazdu","dostepny","rok_produkcji","cena","moc","rodzaj_paliwa","typ");
+        BeanPropertySqlParameterSource param_car = new BeanPropertySqlParameterSource(car);
+        insertActor.execute(param_car);
     }
 
     //read

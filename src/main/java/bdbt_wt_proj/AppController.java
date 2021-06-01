@@ -13,7 +13,6 @@ public class AppController {
     @Autowired
  private CarDAO dao;
 
-
  @RequestMapping("/")
  public String viewHomePage(Model model){
 
@@ -21,6 +20,18 @@ public class AppController {
      model.addAttribute("listCar", listCar);
      System.out.println(listCar);
      return "index";
+ }
+
+ @RequestMapping("/new")
+    public String showNewForm(Model model){
+     Car car = new Car();
+     Marki marki = new Marki();
+     Modele modele = new Modele();
+     model.addAttribute("car", car);
+     model.addAttribute("modele", modele);
+     model.addAttribute("marki", marki);
+
+     return "add_car";
  }
 
 

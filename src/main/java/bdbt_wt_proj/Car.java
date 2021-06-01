@@ -2,23 +2,23 @@ package bdbt_wt_proj;
 
 public class Car {
     private int id_pojazdu;
+    private String nazwa_modelu;
+    private String nazwa_marki;
     private String dostepny;
     private int rok_produkcji;
     private int cena;
     private float moc;
     private String rodzaj_paliwa;
     private String typ;
-    private String nazwa_modelu;
-    private String nazwa_marki;
+
 
 
     public Car(){
 super();
     }
 
-
     public Car(int id_pojazdu, String dostepny, int rok_produkcji, int cena, float moc, String rodzaj_paliwa, String typ, String nazwa_marki, String nazwa_modelu) {
-        super (); //jemu to eclips dopisał więc ja też wstawiam
+        super (); //to eclips dopisał więc ja też wstawiam
         this.id_pojazdu = id_pojazdu;
         this.dostepny = dostepny;
         this.rok_produkcji = rok_produkcji;
@@ -28,6 +28,19 @@ super();
         this.typ = typ;
         this.nazwa_marki = nazwa_marki;
         this.nazwa_modelu = nazwa_modelu;
+    }
+
+    public Car(int id_pojazdu, String dostepny, int rok_produkcji, int cena, float moc, String rodzaj_paliwa, String typ) {
+        super (); //to eclips dopisał więc ja też wstawiam
+        this.id_pojazdu = id_pojazdu;
+        this.dostepny = dostepny;
+        this.rok_produkcji = rok_produkcji;
+        this.cena = cena;
+        this.moc = moc;
+        this.rodzaj_paliwa = rodzaj_paliwa;
+        this.typ = typ;
+        nazwa_marki = "marka";
+        nazwa_modelu = "model";
     }
 
     public int getId_pojazdu() {

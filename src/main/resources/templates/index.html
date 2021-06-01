@@ -12,6 +12,8 @@
 <div align="center">
 
     <h1>Car Record</h1>
+    <!-- Entry to the new page -->
+<a herf = "new/">Enter new car</a>
 
   <table border="1" cellpadding="10">
       <!-- Table header -->
@@ -35,7 +37,7 @@
 <tbody>
   <tr th:each="car:${listCar}">
       <td th:text="${car.id_pojazdu}">id_pojazdu</td>
-      <td th:text="${car.nazwa_marki}">marka</td>
+      <td th:text="${car.nazwa_marki}">marki</td>
       <td th:text="${car.nazwa_modelu}">model</td>
       <td th:text="${car.dostepny}">dostepny</td>
       <td th:text="${car.rok_produkcji}">Rok produkcji</td>
