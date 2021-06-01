@@ -11,8 +11,9 @@ public class Car {
     private String nazwa_modelu;
     private String nazwa_marki;
 
-    public Car(){
 
+    public Car(){
+super();
     }
 
 
@@ -29,7 +30,6 @@ public class Car {
         this.nazwa_modelu = nazwa_modelu;
     }
 
-    //Geters and setters
     public int getId_pojazdu() {
         return id_pojazdu;
     }
@@ -38,7 +38,7 @@ public class Car {
         this.id_pojazdu = id_pojazdu;
     }
 
-    public String isDostepny() {
+    public String getDostepny() {
         return dostepny;
     }
 
@@ -62,10 +62,6 @@ public class Car {
         this.cena = cena;
     }
 
-
-
-
-
     public float getMoc() {
         return moc;
     }
@@ -82,8 +78,6 @@ public class Car {
         this.rodzaj_paliwa = rodzaj_paliwa;
     }
 
-
-
     public String getTyp() {
         return typ;
     }
@@ -91,7 +85,6 @@ public class Car {
     public void setTyp(String typ) {
         this.typ = typ;
     }
-
 
     public String getNazwa_modelu() {
         return nazwa_modelu;
@@ -108,7 +101,6 @@ public class Car {
     public void setNazwa_marki(String nazwa_marki) {
         this.nazwa_marki = nazwa_marki;
     }
-
 
 
     //Generate to String

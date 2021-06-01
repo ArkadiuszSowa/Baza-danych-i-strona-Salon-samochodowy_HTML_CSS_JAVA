@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:th="http://www.w3.org/1999/xhtml"
-      xsi:schemaLocation="hhtp://www.w3.org/1999/xhtml ">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="hhtp://www.thymeleaf.org">
 
 
 <head>
@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<div algin="center">
+<div align="center">
 
     <h1>Car Record</h1>
 
@@ -17,24 +17,38 @@
       <!-- Table header -->
       <thead>
 <tr>
-    <th>ID</th>
-    <th>Available</th>
-    <th>Price</th>
-    <th>Production Year</th>
+    <th>Id pojazdu</th>
+    <th>Marka</th>
+    <th>Model</th>
+    <th>Dostepny</th>
+    <th>Rok produkcji</th>
+    <th>Moc</th>
+    <th>Rodzaj paliwa</th>
+    <th>Typ</th>
+    <th>Cena</th>
+    <th>Akcje</th>
+
 </tr>
+      </thead>
+
 <!-- Table body-->
 <tbody>
-  <tr th:each="car : ${listCar}">
-      <td th:text="${car.id_pojazdu}">ID</td>
-      <td th:text="${car.dostepnosc}">Available</td>
-      <td th:text="${car.cena}">Price</td>
-      <td th:text="${car.rok_produkcji}">Production Year</td>
+  <tr th:each="car:${listCar}">
+      <td th:text="${car.id_pojazdu}">id_pojazdu</td>
+      <td th:text="${car.nazwa_marki}">marka</td>
+      <td th:text="${car.nazwa_modelu}">model</td>
+      <td th:text="${car.dostepny}">dostepny</td>
+      <td th:text="${car.rok_produkcji}">Rok produkcji</td>
+      <td th:text="${car.moc}">Moc</td>
+      <td th:text="${car.rodzaj_paliwa}">Rodzaj paliwa</td>
+      <td th:text="${car.typ}">Typ</td>
+      <td th:text="${car.cena}">Cena</td>
 
   </tr>
 
   </tbody>
 
-</thead>
+
 
   </table>
 
