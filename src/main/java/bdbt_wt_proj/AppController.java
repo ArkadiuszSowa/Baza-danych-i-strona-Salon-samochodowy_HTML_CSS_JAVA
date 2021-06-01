@@ -16,6 +16,7 @@ public class AppController {
  public String viewHomePage(Model model){
      List<Car> listCar = dao.list();
      model.addAttribute("listCar", listCar);
+     System.out.println(listCar);
      return "index";
  }
 }

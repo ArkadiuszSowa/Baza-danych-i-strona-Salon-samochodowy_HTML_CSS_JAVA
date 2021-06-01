@@ -19,7 +19,7 @@ public class CarDAO {
     }
 
     public List<Car> list(){
-        String sql="SELECT * FROM POJAZDY";
+        String sql="SELECT  p.id_pojazdu, p.dostepny, p.rok_produkcji, p.cena, p.moc, p.rodzaj_paliwa, p.typ, mo.nazwa_modelu, ma.nazwa_marki FROM ((pojazdy p INNER JOIN modele mo ON mo.id_modelu=p.id_modelu) INNER JOIN marki ma ON ma.id_marki=mo.id_marki)";
         List<Car> listCar=jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Car.class));
         System.out.println(listCar);
         return listCar;

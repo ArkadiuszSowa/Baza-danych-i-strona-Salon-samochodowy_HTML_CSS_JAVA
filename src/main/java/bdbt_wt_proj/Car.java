@@ -2,31 +2,31 @@ package bdbt_wt_proj;
 
 public class Car {
     private int id_pojazdu;
-    private boolean dostepnosc;
+    private String dostepny;
     private int rok_produkcji;
     private int cena;
-    private float engine_capacity;
-    private float power;
-    private String fuel_type;
-    private String type;
-
+    private float moc;
+    private String rodzaj_paliwa;
+    private String typ;
+    private String nazwa_modelu;
+    private String nazwa_marki;
 
     public Car(){
 
     }
 
 
-    public Car(int id_pojazdu, boolean dostepnosc, int rok_produkcji, int price, float engine_capacity, float power, String fuel_type, String type) {
+    public Car(int id_pojazdu, String dostepny, int rok_produkcji, int cena, float moc, String rodzaj_paliwa, String typ, String nazwa_marki, String nazwa_modelu) {
         super (); //jemu to eclips dopisał więc ja też wstawiam
         this.id_pojazdu = id_pojazdu;
-        this.dostepnosc = dostepnosc;
+        this.dostepny = dostepny;
         this.rok_produkcji = rok_produkcji;
-        this.cena = price;
-        this.engine_capacity = engine_capacity;
-        this.power = power;
-        this.fuel_type = fuel_type;
-        this.type = type;
-
+        this.cena = cena;
+        this.moc = moc;
+        this.rodzaj_paliwa = rodzaj_paliwa;
+        this.typ = typ;
+        this.nazwa_marki = nazwa_marki;
+        this.nazwa_modelu = nazwa_modelu;
     }
 
     //Geters and setters
@@ -38,12 +38,12 @@ public class Car {
         this.id_pojazdu = id_pojazdu;
     }
 
-    public boolean isDostepnosc() {
-        return dostepnosc;
+    public String isDostepny() {
+        return dostepny;
     }
 
-    public void setDostepnosc(boolean dostepnosc) {
-        this.dostepnosc = dostepnosc;
+    public void setDostepny(String dostepny) {
+        this.dostepny = dostepny;
     }
 
     public int getRok_produkcji() {
@@ -64,54 +64,66 @@ public class Car {
 
 
 
-    public float getEngine_capacity() {
-        return engine_capacity;
+
+
+    public float getMoc() {
+        return moc;
     }
 
-    public void setEngine_capacity(float engine_capacity) {
-        this.engine_capacity = engine_capacity;
+    public void setMoc(float moc) {
+        this.moc = moc;
     }
 
-    public float getPower() {
-        return power;
+    public String getRodzaj_paliwa() {
+        return rodzaj_paliwa;
     }
 
-    public void setPower(float power) {
-        this.power = power;
-    }
-
-    public String getFuel_type() {
-        return fuel_type;
-    }
-
-    public void setFuel_type(String fuel_type) {
-        this.fuel_type = fuel_type;
+    public void setRodzaj_paliwa(String rodzaj_paliwa) {
+        this.rodzaj_paliwa = rodzaj_paliwa;
     }
 
 
 
-    public String getType() {
-        return type;
+    public String getTyp() {
+        return typ;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setTyp(String typ) {
+        this.typ = typ;
+    }
+
+
+    public String getNazwa_modelu() {
+        return nazwa_modelu;
+    }
+
+    public void setNazwa_modelu(String nazwa_modelu) {
+        this.nazwa_modelu = nazwa_modelu;
+    }
+
+    public String getNazwa_marki() {
+        return nazwa_marki;
+    }
+
+    public void setNazwa_marki(String nazwa_marki) {
+        this.nazwa_marki = nazwa_marki;
     }
 
 
 
-   //Generate to String
+    //Generate to String
     @Override
     public String toString() {
         return "Car{" +
                 "id=" + id_pojazdu +
-                ", available=" + dostepnosc +
-                ", production_year=" + rok_produkcji +
-                ", price=" + cena +
-                ", engine_capacity=" + engine_capacity +
-                ", power=" + power +
-                ", fuel_type='" + fuel_type + '\'' +
-                ", type='" + type + '\'' +
+                ", nazwa_modelu=" + nazwa_modelu +
+                ", nazwa_marki=" + nazwa_marki +
+                ", dostepny=" + dostepny +
+                ", rok_produkcji=" + rok_produkcji +
+                ", cena=" + cena +
+                ", moc=" + moc +
+                ", rodzaj paliwa='" + rodzaj_paliwa + '\'' +
+                ", typ='" + typ + '\'' +
                 '}';
     }
 }
