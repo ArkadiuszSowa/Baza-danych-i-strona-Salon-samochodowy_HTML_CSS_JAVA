@@ -55,7 +55,7 @@
             <scope>system</scope>
 
             <!--            tutaj nalezy wpisac sciezke pliku ojdbc-->
-            <systemPath>C:/Programowanie/jdbc/ojdbc10.jar</systemPath>
+            <systemPath>G:/ProjektyProgramowanie/Salon Samochodowy/OJDBC/ojdbc10.jar</systemPath>
 
         </dependency>
 

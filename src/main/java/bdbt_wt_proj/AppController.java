@@ -34,5 +34,12 @@ public class AppController {
      return "add_car";
  }
 
+    @RequestMapping("/elo")
+    public String elo(Model model){
+
+
+        return "test";
+    }
+
 
 }
