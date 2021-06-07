@@ -42,20 +42,8 @@ super();
         this.id_modelu = id_modelu;
         id_koloru = 42;
     }
-//
-//    public Car(int id_pojazdu, String dostepny, int rok_produkcji, int cena, int moc, String rodzaj_paliwa, String typ, String nazwa_marki, String nazwa_modelu) {
-//        super (); //to eclips dopisał więc ja też wstawiam
-//        this.id_pojazdu = id_pojazdu;
-//        this.dostepny = dostepny;
-//        this.rok_produkcji = rok_produkcji;
-//        this.cena = cena;
-//        this.moc = moc;
-//        this.rodzaj_paliwa = rodzaj_paliwa;
-//        this.typ = typ;
-//        this.nazwa_marki = nazwa_marki;
-//        this.nazwa_modelu = nazwa_modelu;
-//    }
 
+    //todo to chyba mozna usunac
     public Car(int id_pojazdu, String dostepny, int rok_produkcji, int cena, int moc, String rodzaj_paliwa, String typ) {
         super (); //to eclips dopisał więc ja też wstawiam
         this.id_pojazdu = id_pojazdu;
@@ -165,7 +153,7 @@ super();
         this.cena = cena;
     }
 
-    public float getMoc() {
+    public int getMoc() {
         return moc;
     }
 

@@ -35,11 +35,11 @@ class CarDAOTest extends Object {
     }
 
 
-    @org.junit.jupiter.api.Test
-    void save_marki() {
-        Marki marki = new Marki(0,"Fiat");
-        dao.save_marki(marki);
-    }
+//    @org.junit.jupiter.api.Test
+//    void save_marki() {
+//        Marki marki = new Marki(0,"Fiat");
+//        dao.save_marki(marki);
+//    }
 
     @org.junit.jupiter.api.Test
     void save_modele() {

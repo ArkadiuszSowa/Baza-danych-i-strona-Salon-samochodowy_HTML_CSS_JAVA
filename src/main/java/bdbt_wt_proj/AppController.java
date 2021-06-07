@@ -3,7 +3,9 @@ package bdbt_wt_proj;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
@@ -23,7 +25,7 @@ public class AppController {
  }
 
  @RequestMapping("/new")
-    public String showNewForm(Model model){
+    public String showAddCar(Model model){
      Car car = new Car();
      Marki marki = new Marki();
      Modele modele = new Modele();
@@ -41,5 +43,10 @@ public class AppController {
         return "test";
     }
 
+ @RequestMapping(value = "/save",method = RequestMethod.POST)
+    public String save_car(@ModelAttribute("car") Car car){
+     dao.save_car(car);
+     return "redirect:/";
+    }
 
 }
