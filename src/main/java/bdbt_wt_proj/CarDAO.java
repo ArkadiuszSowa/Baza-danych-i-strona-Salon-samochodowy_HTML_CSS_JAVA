@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
@@ -62,13 +63,21 @@ public class CarDAO {
     }
 
     //read
-    public Car get(int id){
-        return null;
+    public Car get(int id_pojazdu){
+        Object[] args ={id_pojazdu};
+        String sql = "SELECT * FROM pojazdy WHERE id_pojazdu= "+args[0];
+        Car car = jdbcTemplate.queryForObject(sql, BeanPropertyRowMapper.newInstance(Car.class));
+
+        return car;
     }
 
     //update
     public void update(Car car){
+        String sql= "UPDATE POJAZDY SET dostepny=:dostepny, rok_produkcji=:rok_produkcji, cena=:cena, nr_vin=:nr_vin, pojemnosc_silnika=:pojemnosc_silnika, moc=:moc, rodzaj_paliwa=:rodzaj_paliwa, liczba_miejsc_siedzacych=:liczba_miejsc_siedzacych, typ=:typ, skrzynia_biegow=:skrzynia_biegow, id_modelu=:id_modelu WHERE id_pojazdu=:id_pojazdu";
+        BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(car);
+        NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
 
+        template.update(sql,param);
     }
 
     //delete

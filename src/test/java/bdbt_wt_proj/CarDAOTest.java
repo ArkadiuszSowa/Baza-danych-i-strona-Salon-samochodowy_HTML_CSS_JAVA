@@ -59,10 +59,20 @@ class CarDAOTest extends Object {
 
     @org.junit.jupiter.api.Test
     void get() {
+
     }
 
     @org.junit.jupiter.api.Test
     void update() {
+        int randomNum = ThreadLocalRandom.current().nextInt(10000, 99999);
+        String nr_vin="V21GBFHSGD61"+randomNum;
+        Car car = new Car("NIE", 0000, 10000, nr_vin, 2.5f,100,"LPG", 5,"SUV", "Automatyczna", 61 );
+        car.setId_pojazdu(4);
+        car.setDostepny("TAK");
+        car.setMoc(50);
+
+        dao.update(car);
+
     }
 
     @org.junit.jupiter.api.Test

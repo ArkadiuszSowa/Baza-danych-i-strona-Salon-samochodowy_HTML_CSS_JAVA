@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -47,6 +49,15 @@ public class AppController {
     public String save_car(@ModelAttribute("car") Car car){
      dao.save_car(car);
      return "redirect:/";
+    }
+
+    @RequestMapping("/edit/{id_pojazdu}")
+    public ModelAndView showEditForm(@PathVariable(name = "id_pojazdu")int id_pojazdu){
+     ModelAndView mav = new ModelAndView("edit_car");
+     Car car = dao.get(id_pojazdu);
+     mav.addObject("car",car);
+
+     return mav;
     }
 
 }
