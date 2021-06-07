@@ -14,9 +14,16 @@
 
     <!--    End line/new line-->
     <br/>
+
     <form action="#" th:action="@{/save}" th:object="${car}" method="post">
         <!--  Table-->
         <table border="1" cellpadding="10">
+            <!--Table (0) row-->
+            <tr>
+                <td>Id:</td>
+                <td><input type="text" th:field="*{id_pojazdu}"></td>
+            </tr>
+
             <!--Table (1) row-->
             <tr>
                 <td>Dostepny:</td>
@@ -69,8 +76,23 @@
             </tr>
             <!--Table (11) row-->
             <tr>
+                <td>Id uslugi:</td>
+                <td><input type="text" th:field="*{id_uslugi}"></td>
+            </tr>
+            <!--Table (12) row-->
+            <tr>
+                <td>Id salonu:</td>
+                <td><input type="text" th:field="*{id_salonu}"></td>
+            </tr>
+            <!--Table (13) row-->
+            <tr>
                 <td>Id modelu:</td>
                 <td><input type="text" th:field="*{id_modelu}"></td>
+            </tr>
+            <!--Table (14) row-->
+            <tr>
+                <td>Id koloru:</td>
+                <td><input type="text" th:field="*{id_koloru}"></td>
             </tr>
 
             <!--Button save-->

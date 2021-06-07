@@ -54,9 +54,9 @@ public class AppController {
     }
 
  @RequestMapping(value = "/save",method = RequestMethod.POST)
-    public String save_car(@ModelAttribute("car") Car car){
-     dao.save_car(car);
-     return "redirect:/";
+    public String save(@ModelAttribute("car") Car car){
+     dao.save(car);
+     return "redirect:/samochody";
     }
 
     @RequestMapping("/edit/{id_pojazdu}")
@@ -66,6 +66,18 @@ public class AppController {
      mav.addObject("car",car);
 
      return mav;
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String update(@ModelAttribute("car")Car car){
+     dao.update(car);
+     return "redirect:/samochody";
+    }
+
+    @RequestMapping("/delete/{id_pojazdu}")
+    public String delete (@PathVariable(name = "id_pojazdu")int id_pojazdu){
+     dao.delete(id_pojazdu);
+     return "redirect:/samochody";
     }
 
 }

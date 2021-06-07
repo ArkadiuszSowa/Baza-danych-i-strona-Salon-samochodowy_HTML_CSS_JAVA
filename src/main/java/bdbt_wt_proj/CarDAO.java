@@ -55,7 +55,7 @@ public class CarDAO {
     }
 
     //insert
-    public void save_car(Car car){
+    public void save(Car car){
         SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
         insertActor.withTableName("pojazdy").usingColumns("id_pojazdu","dostepny","rok_produkcji","cena","nr_vin","pojemnosc_silnika","moc","rodzaj_paliwa","liczba_miejsc_siedzacych","typ","skrzynia_biegow","id_uslugi","id_salonu","id_modelu","id_koloru");
         BeanPropertySqlParameterSource param_car = new BeanPropertySqlParameterSource(car);
@@ -81,7 +81,9 @@ public class CarDAO {
     }
 
     //delete
-    public void delete(int id){
+    public void delete(int id_pojazdu){
+        String sql = "DELETE FROM POJAZDY WHERE id_pojazdu = ?";
+        jdbcTemplate.update(sql,id_pojazdu);
 
     }
 

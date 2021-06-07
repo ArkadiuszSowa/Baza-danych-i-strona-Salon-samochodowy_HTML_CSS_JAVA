@@ -1,6 +1,5 @@
 package bdbt_wt_proj;
 
-import ch.qos.logback.core.sift.AppenderTracker;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
@@ -50,11 +49,11 @@ class CarDAOTest extends Object {
     }
 
     @org.junit.jupiter.api.Test
-    void save_car() {
+    void save() {
         int randomNum = ThreadLocalRandom.current().nextInt(10000, 99999);
         String nr_vin="V21GBFHSGD61"+randomNum;
         Car car = new Car("NIE", 2000, 10000, nr_vin, 2.5f,100,"LPG", 5,"SUV", "Automatyczna", 61 );
-        dao.save_car(car);//trzba pamietać o roznych nr_vin bo dwa identycznie nie wejda do bazy
+        dao.save(car);//trzba pamietać o roznych nr_vin bo dwa identycznie nie wejda do bazy
     }
 
     @org.junit.jupiter.api.Test
@@ -77,5 +76,7 @@ class CarDAOTest extends Object {
 
     @org.junit.jupiter.api.Test
     void delete() {
+        int id_pojazdu = 54;
+        dao.delete(id_pojazdu);
     }
 }

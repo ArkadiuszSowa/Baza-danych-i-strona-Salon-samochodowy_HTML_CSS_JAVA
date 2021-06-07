@@ -144,7 +144,10 @@
       <td th:text="${car.rodzaj_paliwa}">Rodzaj paliwa</td>
       <td th:text="${car.typ}">Typ</td>
       <td th:text="${car.cena}">Cena</td>
-      <td><a th:href="@{'/edit/' + ${car.id_pojazdu}}">Edit</a></td>
+      <td><a th:href="@{'/edit/' + ${car.id_pojazdu}}">Edit</a>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <a th:href="@{'/delete/' + ${car.id_pojazdu}}">Delete</a>
+      </td>
   </tr>
 
   </tbody>
@@ -157,7 +160,7 @@
     </div>
 
     <div id="footer">
-        2021 by Janusz Buras &copy; Wszelkie prawa zastrzeżone
+        2021 by Janusz Buras & Arkadiusz Sowa &copy; Wszelkie prawa zastrzeżone
     </div>
 
 
