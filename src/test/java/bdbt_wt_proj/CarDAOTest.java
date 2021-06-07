@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -50,9 +51,10 @@ class CarDAOTest extends Object {
 
     @org.junit.jupiter.api.Test
     void save_car() {
-        List<Modele> listModele = dao.list_modele();//todo int id marki i id modelu
-        Car car = new Car(0, "NIE", 0000, 10000, 10.5f, "brak", "brak");
-        dao.save_car(car);
+        int randomNum = ThreadLocalRandom.current().nextInt(10000, 99999);
+        String nr_vin="V21GBFHSGD61"+randomNum;
+        Car car = new Car("NIE", 0000, 10000, nr_vin, 2.5f,100,"LPG", 5,"SUV", "Automatyczna", 61 );
+        dao.save_car(car);//trzba pamietać o roznych nr_vin bo dwa identycznie nie wejda do bazy
     }
 
     @org.junit.jupiter.api.Test
