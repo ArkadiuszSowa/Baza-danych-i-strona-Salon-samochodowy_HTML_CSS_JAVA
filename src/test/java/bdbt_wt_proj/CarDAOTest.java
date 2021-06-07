@@ -53,7 +53,7 @@ class CarDAOTest extends Object {
     void save_car() {
         int randomNum = ThreadLocalRandom.current().nextInt(10000, 99999);
         String nr_vin="V21GBFHSGD61"+randomNum;
-        Car car = new Car("NIE", 0000, 10000, nr_vin, 2.5f,100,"LPG", 5,"SUV", "Automatyczna", 61 );
+        Car car = new Car("NIE", 2000, 10000, nr_vin, 2.5f,100,"LPG", 5,"SUV", "Automatyczna", 61 );
         dao.save_car(car);//trzba pamietać o roznych nr_vin bo dwa identycznie nie wejda do bazy
     }
 
