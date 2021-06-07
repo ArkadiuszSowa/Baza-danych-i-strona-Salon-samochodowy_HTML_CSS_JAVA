@@ -15,8 +15,8 @@ public class AppController {
     @Autowired
  private CarDAO dao;
 
- @RequestMapping("/")
- public String viewHomePage(Model model){
+ @RequestMapping("/samochody")
+ public String viewCar(Model model){
 
      List<Car> listCar = dao.list();
      model.addAttribute("listCar", listCar);
@@ -32,15 +32,23 @@ public class AppController {
      model.addAttribute("car", car);
      model.addAttribute("modele", modele);
      model.addAttribute("marki", marki);
+     dao.update(car);
 
      return "add_car";
  }
 
-    @RequestMapping("/elo")
-    public String elo(Model model){
+    @RequestMapping("/")
+    public String vievHomePage(Model model){
 
 
         return "test";
+    }
+
+    @RequestMapping("/kontakt")
+    public String contact(Model model){
+
+
+        return "contact";
     }
 
  @RequestMapping(value = "/save",method = RequestMethod.POST)
