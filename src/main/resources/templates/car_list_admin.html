@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="hhtp://www.thymeleaf.org">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>BuraSowa Company</title>
+</head>
+
+<style type="text/css">
+
+        body
+        {
+        background-color:white;
+
+        }
+
+         #menu
+        {
+           width:auto;
+           margin-left: auto;
+           margin-right: auto;
+           background-color: black;
+           color: white;
+           padding: 10px;
+        }
+
+        #logo
+        {
+            margin-left: 12px;
+            float: left;
+        }
+
+        #companyName
+        {
+            margin-left: 3px;
+            float: left;
+             font-size: 28px;
+            font-weight: bold;
+            padding: 10px;
+        }
+
+        #centerOptions
+        {
+            width: 500px;
+            float: center;
+        }
+
+          #container
+        {
+            width: 2500;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #footer
+        {
+            background-color: black;
+            clear: both;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 18px;
+            color: grey;
+        }
+
+         .option
+        {
+            float:left;
+            min-width:50px;
+            height:25px;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 10px;
+            border-right: 1px dotted white;
+            border-left: 1px dotted white;
+            color: white;
+        }
+
+        .option:hover
+        {
+            background-color: #696969;
+            cursor: pointer;
+        }
+
+
+
+</style>
+
+<body>
+
+<div align="center">
+
+    <div id="menu">
+
+        <div id="logo"><img src="logo.png"></div>
+        <div id="companyName">BuraSowa Company</div>
+        <div id="centerOptions">
+         <a href="\"><div class="option">Strona główna</div></a>
+            <a href="samochody">  <div class="option">Nasze samochody</div></a>
+            <a href="kontakt"> <div class="option">Kontakt</div></a>
+            <div style="clear:both"></div>
+        </div>
+    </div>
+
+    <div id="container">
+
+        <h1>Car Record</h1>
+        <!-- Entry to the new page -->
+        <a href="new/">Dodaj nowy samochód</a>
+
+<!--        End line/ new line-->
+<!--        todo sprawdz to-->
+        <br />
+
+        <table border="1" cellpadding="10">
+            <!-- Table header -->
+            <thead>
+            <tr>
+                <th>Id pojazdu</th>
+                <th>Dostepny</th>
+                <th>Marka</th>
+                <th>Model</th>
+                <th>Nr_vin</th>
+                <th>Rok produkcji</th>
+                <th>Moc</th>
+                <th>Rodzaj paliwa</th>
+                <th>Typ</th>
+                <th>Cena</th>
+                <th>Akcje</th>
+
+            </tr>
+      </thead>
+
+<!-- Table body-->
+<tbody>
+  <tr th:each="car:${listCar}">
+      <td th:text="${car.id_pojazdu}">id_pojazdu</td>
+      <td th:text="${car.dostepny}">dostepny</td>
+      <td th:text="${car.nazwa_marki}">marki</td>
+      <td th:text="${car.nazwa_modelu}">model</td>
+      <td th:text="${car.nr_vin}">Nr_vin</td>
+      <td th:text="${car.rok_produkcji}">Rok produkcji</td>
+      <td th:text="${car.moc}">Moc</td>
+      <td th:text="${car.rodzaj_paliwa}">Rodzaj paliwa</td>
+      <td th:text="${car.typ}">Typ</td>
+      <td th:text="${car.cena}">Cena</td>
+      <td><a th:href="@{'/edit/' + ${car.id_pojazdu}}">Edit</a>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <a th:href="@{'/delete/' + ${car.id_pojazdu}}">Delete</a>
+      </td>
+  </tr>
+
+  </tbody>
+
+
+
+  </table>
+
+        <br><br>
+    </div>
+
+    <div id="footer">
+        2021 by Janusz Buras & Arkadiusz Sowa &copy; Wszelkie prawa zastrzeżone
+    </div>
+
+
+
+</div>
+
+
+
+</body>
+</html>

@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="hhtp://www.thymeleaf.org">
-
-
+<!DOCTYPE HTML>
+<html lang="pl">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8" />
     <title>BuraSowa Company</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<style type="text/css">
-
+<!--cssssss-->
+    <style type="text/css">
         body
         {
         background-color:white;
@@ -24,6 +23,7 @@
            background-color: black;
            color: white;
            padding: 10px;
+            height:50px;
         }
 
         #logo
@@ -31,6 +31,24 @@
             margin-left: 12px;
             float: left;
         }
+
+        #login
+        {
+            min-width:50px;
+            height:25px;
+            font-size: 20px;
+            padding: 10px;
+            float: right;
+            margin-right: 12px;
+            color: white;
+        }
+
+        #login:hover
+        {
+            color: grey;
+            cursor: pointer;
+        }
+
 
         #companyName
         {
@@ -47,14 +65,64 @@
             float: center;
         }
 
-          #container
+        #container
         {
             width: 2500;
             margin-left: auto;
             margin-right: auto;
         }
 
-        #footer
+        #middleContent
+        {
+            width:2250;
+            float: center;
+
+        }
+
+        #content
+        {
+            color: black;
+            margin-top: 70px;
+            margin-bottom: 70px;
+            height: 620px;
+            width:1800px;
+        }
+
+        #contentPhoto
+        {
+            float: left;
+            padding: 10px;
+            width: 900px;
+
+        }
+
+        #contentText
+        {
+            float: left;
+            font-size: 25px;
+            text-align: justify;
+            width: 700px;
+            margin-left: 60px;
+        }
+
+         #contentText2
+        {
+            float: left;
+            font-size: 25px;
+            text-align: justify;
+            width: 700px;
+            margin-left: 60px;
+        }
+
+         #contentPhoto2
+        {
+            float: left;
+            padding: 10px;
+            width: 900px;
+            margin-left: 80px;
+        }
+
+       #footer
         {
             background-color: black;
             clear: both;
@@ -63,9 +131,10 @@
             padding: 20px;
             font-size: 18px;
             color: grey;
+            margin-top: 70px;
         }
 
-         .option
+        .option
         {
             float:left;
             min-width:50px;
@@ -86,88 +155,87 @@
 
 
 
+
 </style>
+
+
+
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,900&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+</head>
 
 <body>
 
 <div align="center">
 
-    <div id="menu">
+<div id="menu">
 
-        <div id="logo"><img src="logo.png"></div>
-        <div id="companyName">BuraSowa Company</div>
-        <div id="centerOptions">
-         <a href="\"><div class="option">Strona główna</div></a>
-            <a href="samochody">  <div class="option">Nasze samochody</div></a>
-            <a href="kontakt"> <div class="option">Kontakt</div></a>
-            <div style="clear:both"></div>
+    <div id="logo"><img src="logo.png"></div>
+    <div id="companyName">BuraSowa Company</div>
+    <div id="centerOptions">
+        <a href="\"><div class="option">Strona główna</div></a>
+        <a href="samochody">  <div class="option">Nasze samochody</div></a>
+        <a href="kontakt"> <div class="option">Kontakt</div></a>
+
+    </div>
+    <a href="login"><div id="login">th:text="${state}"</div></a>
+    <div style="clear:both"></div>
+
+</div>
+
+<div id="container">
+
+
+        <div id="content">
+         <div id="middleContent">
+
+          <div id="contentPhoto">
+              <img src="BuraSowa.jpg">
+          </div>
+
+        <div id="contentText">
+            <h1> O nas</h1>
+            Jesteśmy BurasSowa Company! U nas mają Państwo do dyspozycji 7 różnych marek samochodowych takich jak: SEAT, Fiat, Fiat samochody dostawcze, Subaru, Alfa Romeo, Jeep, CUPRA. Jesteśmy jednym z największych salonów samochodów nowych jak i używanych. A wszystko w jednym miejscu, co daję Państwu wiele rozwiązań oraz możliwości. Nasza przygoda trwa ponad 20 lat i jest owocem ciągłych zmian wymagań i preferencji Klientów.
+            Posiadamy bogate doświadczenie w sprzedaży detalicznej i flotowej. Nasi doradcy profesjonalnie obsłużą Państwa jako klienta indywidualnego oraz właściciela małych i średnich przedsiębiorstw.
+            Oferujemy również specjalistyczny serwis oraz blacharnię. Wykorzystujemy najbardziej nowoczesny sprzęt, dzięki czemu zarówno diagnostyka, jak i naprawy są wykonywane sprawnie i skutecznie.
         </div>
-    </div>
 
-    <div id="container">
 
-        <h1>Car Record</h1>
-        <!-- Entry to the new page -->
-        <a href="new/">Enter new car</a>
+        <div style="clear:both"></div>
 
-<!--        End line/ new line-->
-<!--        todo sprawdz to-->
-        <br />
+<br><br><br><br>
 
-        <table border="1" cellpadding="10">
-            <!-- Table header -->
-            <thead>
-            <tr>
-                <th>Id pojazdu</th>
-                <th>Marka</th>
-                <th>Model</th>
-                <th>Dostepny</th>
-                <th>Rok produkcji</th>
-                <th>Moc</th>
-                <th>Rodzaj paliwa</th>
-                <th>Typ</th>
-                <th>Cena</th>
-                <th>Akcje</th>
+            <div id="contentText2">
+                <h1> Salon</h1>
+                salon jest sztos i elo Jesteśmy BurasSowa Company! U nas mają Państwo do dyspozycji 7 różnych marek samochodowych takich jak: SEAT, Fiat, Fiat samochody dostawcze, Subaru, Alfa Romeo, Jeep, CUPRA. Jesteśmy jednym z największych salonów samochodów nowych jak i używanych. A wszystko w jednym miejscu, co daję Państwu wiele rozwiązań oraz możliwości. Nasza przygoda trwa ponad 20 lat i jest owocem ciągłych zmian wymagań i preferencji Klientów.
+                Posiadamy bogate doświadczenie w sprzedaży detalicznej i flotowej. Nasi doradcy profesjonalnie obsłużą Państwa jako klienta indywidualnego oraz właściciela małych i średnich przedsiębiorstw.
+                Oferujemy również specjalistyczny serwis oraz blacharnię. Wykorzystujemy najbardziej nowoczesny sprzęt, dzięki czemu zarówno diagnostyka, jak i naprawy są wykonywane sprawnie i skutecznie.
 
-            </tr>
-      </thead>
-
-<!-- Table body-->
-<tbody>
-  <tr th:each="car:${listCar}">
-      <td th:text="${car.id_pojazdu}">id_pojazdu</td>
-      <td th:text="${car.nazwa_marki}">marki</td>
-      <td th:text="${car.nazwa_modelu}">model</td>
-      <td th:text="${car.dostepny}">dostepny</td>
-      <td th:text="${car.rok_produkcji}">Rok produkcji</td>
-      <td th:text="${car.moc}">Moc</td>
-      <td th:text="${car.rodzaj_paliwa}">Rodzaj paliwa</td>
-      <td th:text="${car.typ}">Typ</td>
-      <td th:text="${car.cena}">Cena</td>
-      <td><a th:href="@{'/edit/' + ${car.id_pojazdu}}">Edit</a>
-      &nbsp;&nbsp;&nbsp;&nbsp;
-      <a th:href="@{'/delete/' + ${car.id_pojazdu}}">Delete</a>
-      </td>
-  </tr>
-
-  </tbody>
+            </div>
 
 
 
-  </table>
 
-        <br><br>
-    </div>
+            <div id="contentPhoto2">
+                <img src="salon.jpg">
+            </div>
 
-    <div id="footer">
-        2021 by Janusz Buras & Arkadiusz Sowa &copy; Wszelkie prawa zastrzeżone
-    </div>
+             <div style="clear:both"></div>
+
+         </div>
+        </div>
+
+
+
 
 
 
 </div>
-
-
+    <div id="footer">
+        2021 by Janusz Buras &copy; Wszelkie prawa zastrzeżone
+    </div>
+</div>
 
 </body>
 </html>

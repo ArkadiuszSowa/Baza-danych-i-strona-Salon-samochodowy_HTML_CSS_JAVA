@@ -21,22 +21,32 @@ public class CarDAO {
         this.jdbcTemplate=jdbcTemplate;
     }
 
-    public List<Car> list(){
-        String sql="SELECT  p.id_pojazdu, p.dostepny, p.rok_produkcji, p.cena, p.moc, p.rodzaj_paliwa, p.typ, mo.nazwa_modelu, ma.nazwa_marki FROM ((pojazdy p INNER JOIN modele mo ON mo.id_modelu=p.id_modelu) INNER JOIN marki ma ON ma.id_marki=mo.id_marki)";
+    public List<Car> listAll(){
+        String sql="SELECT  p.id_pojazdu, p.dostepny, p.nr_vin, p.rok_produkcji, p.cena, p.moc, p.rodzaj_paliwa, p.typ, mo.nazwa_modelu, ma.nazwa_marki FROM ((pojazdy p INNER JOIN modele mo ON mo.id_modelu=p.id_modelu) INNER JOIN marki ma ON ma.id_marki=mo.id_marki)";
         List<Car> listCar=jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Car.class));
-        System.out.println(listCar);
+
         return listCar;
     }
+
+    public List<Car> list(){
+        String sql="SELECT  p.dostepny, p.rok_produkcji, p.cena, p.moc, p.rodzaj_paliwa, p.typ, mo.nazwa_modelu, ma.nazwa_marki FROM ((pojazdy p INNER JOIN modele mo ON mo.id_modelu=p.id_modelu) INNER JOIN marki ma ON ma.id_marki=mo.id_marki) WHERE p.dostepny='TAK'";
+        List<Car> listCar=jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Car.class));
+
+        return listCar;
+    }
+
+
+
     public List<Modele> list_modele(){
         String sql= "Select id_modelu, id_marki from modele";
         List<Modele> listModele=jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Modele.class));
-        System.out.println(listModele);
+
         return listModele;
     }
     public List<Marki> list_marki(){
         String sql= "Select id_marki from marki";
         List<Marki> listMarki=jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Marki.class));
-        System.out.println(listMarki);
+
         return listMarki;
     }
 

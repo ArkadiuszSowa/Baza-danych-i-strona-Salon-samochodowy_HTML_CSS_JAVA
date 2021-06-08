@@ -1,5 +1,7 @@
 package bdbt_wt_proj;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,10 +22,24 @@ public class AppController {
  @RequestMapping("/samochody")
  public String viewCar(Model model){
 
-     List<Car> listCar = dao.list();
+
+
+
+     Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+     String role = authentication.getName();
+
+
+     List<Car> listCar;
+     if(role.equals("admin")){
+         listCar = dao.listAll();
+     }
+     else {
+         listCar = dao.list();
+     }
      model.addAttribute("listCar", listCar);
-     System.out.println(listCar);
-     return "index";
+
+
+     return "car_list_"+role;
  }
 
  @RequestMapping("/new")
@@ -42,12 +58,21 @@ public class AppController {
     @RequestMapping("/")
     public String vievHomePage(Model model){
 
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String role = authentication.getName();
+        if(role.equals("anonymousUser")){
+            model.addAttribute("state", "Zaloguj się");
+        }
+        else{
+            model.addAttribute("state", "Wyloguj się");
+        }
 
-        return "test";
+        return "index";
     }
 
     @RequestMapping("/kontakt")
     public String contact(Model model){
+
 
 
         return "contact";
