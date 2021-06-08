@@ -1,6 +1,6 @@
 package bdbt_wt_proj;
 
-import org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration;
+//import org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -16,7 +16,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        UserDetails moderator = User.withDefaultPasswordEncoder()
+        UserDetails user = User.withDefaultPasswordEncoder()
                 .username("user")
                 .password("user1")
                 .roles("USER")
@@ -32,13 +32,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.httpBasic().and().authorizeRequests()
-                .antMatchers("/samochody").permitAll()
-                .anyRequest().hasRole("admin")
-                .add()
-                .formLogin().permitAll();
+                .antMatchers("/samochody").permitAll().and().formLogin().permitAll();
 
     }
 }
 
 
-}
