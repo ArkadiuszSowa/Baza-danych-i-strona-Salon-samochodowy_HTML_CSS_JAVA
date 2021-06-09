@@ -65,6 +65,26 @@
             margin-right: auto;
         }
 
+
+        table {
+          border-collapse: collapse;
+
+        }
+
+        th, td {
+          text-align: left;
+          padding: 8px;
+        }
+
+        tr:nth-child(even){background-color: #f2f2f2}
+
+        th {
+          background-color: #04AA6D;
+          color: white;
+        }
+
+
+
         #footer
         {
             background-color: black;
@@ -95,6 +115,47 @@
             cursor: pointer;
         }
 
+        .add
+        {
+        font-size: 24px;
+        padding: 12px 20px;
+        background-color: #4CAF50;
+        }
+
+        .edit
+        {
+        font-size: 9px;
+        background-color: #6482FC;
+        font-weight: bold;
+        }
+
+        .delete
+        {
+        font-size: 9px;
+        background-color: #FC5151;
+        font-weight: bold;
+        }
+
+        .button {
+          display: inline-block;
+          padding: 9px 15px;
+          cursor: pointer;
+          text-align: center;
+          text-decoration: none;
+          outline: none;
+          color: #fff;
+          border: none;
+          border-radius: 15px;
+          box-shadow: 0 5px #999;
+        }
+
+        .button:hover {background-color: #5A5959}
+
+        .button:active {
+          background-color: #3e8e41;
+          box-shadow: 0 5px #666;
+          transform: translateY(4px);
+        }
 
 
 </style>
@@ -118,9 +179,11 @@
 
     <div id="container">
 
-        <h1>Car Record</h1>
+        <br><br>
+        <h1>Wszystkie samochody</h1>
+
         <!-- Entry to the new page -->
-        <a href="new/">Dodaj nowy samochód</a>
+
 
 <!--        End line/ new line-->
 <!--        todo sprawdz to-->
@@ -158,9 +221,9 @@
       <td th:text="${car.rodzaj_paliwa}">Rodzaj paliwa</td>
       <td th:text="${car.typ}">Typ</td>
       <td th:text="${car.cena}">Cena</td>
-      <td><a th:href="@{'/edit/' + ${car.id_pojazdu}}">Edit</a>
+      <td><a th:href="@{'/edit/' + ${car.id_pojazdu}}"><button class="button edit">Edytuj</button></a>
       &nbsp;&nbsp;&nbsp;&nbsp;
-      <a th:href="@{'/delete/' + ${car.id_pojazdu}}">Delete</a>
+      <a th:href="@{'/delete/' + ${car.id_pojazdu}}"><button class="button delete">- Usuń</button></a>
       </td>
   </tr>
 
@@ -169,8 +232,9 @@
 
 
   </table>
-
         <br><br>
+        <a href="new/"><button class="button add">+ Dodaj samochód</button></a>
+        <br><br><br>
     </div>
 
     <div id="footer">

@@ -64,10 +64,10 @@
 
           #container
         {
-            width: 2500;
+            width: 1250px;
             margin-left: auto;
             margin-right: auto;
-
+           height:700px;
         }
 
         #content
@@ -75,13 +75,12 @@
             color: black;
             margin-top: 50px;
             margin-bottom: 20px;
-            height: 620px;
-            width:1800px;
+            width:1200px;
         }
 
         #middleContent
         {
-            width:2250;
+            width:1200;
             float: center;
         }
 
@@ -110,23 +109,29 @@
         #map
         {
             float: left;
-            width: 900px;
+            width: 600px;
 
         }
+
 
         #info
         {
             float: left;
             margin-left:40px;
-            font-size: 25px;
+            font-size: 20px;
             text-align: justify;
-            width: 700px;
+            width: 550px;
         }
 
-
+        #contactDetails
+        {
+        font-weight: bold;
+        font-size: 24px;
+        }
 
        #footer
         {
+            margin-top:70px;
             background-color: black;
             clear: both;
             color: white;
@@ -135,6 +140,7 @@
             font-size: 18px;
             color: grey;
         }
+
 
         .option
         {
@@ -155,18 +161,6 @@
             cursor: pointer;
         }
 
-        .contactRow
-        {
-            min-width:50px;
-            height:20px;
-            padding: 10px;
-            margin-top: 20px;
-        }
-
-        .contactPhoto
-        {
-            float: left;
-        }
 
 
         .contactText
@@ -205,36 +199,23 @@
     <div id="container">
 
         <div id="contact">KONTAKT</div>
-        <div id="contactText">ebebebbeb  ebebebbebeb  ebbebebebebebeb</div>
+        <div id="contactText">Zapraszamy do kontaktu telefonicznego oraz odwiedzenia salonu.</div>
 
         <div id="content">
             <div id="middleContent">
-            <div id="map"><img src="salon.jpg"></div>
+            <div id="map"><img src="mapa.png"></div>
             <div id="info">
                 <h2>Jak nas znaleźć?</h2>
-                Idziesz prosto w lewo w drzewo no i na miejscu jestes 4 min z buta od centrum,
-                nie wiem czemu to czytasz, przeciez masz mapy google, wiec to jest bez sesnu ale okej no skor muszisz to juz bądź.
+                Salon nasz znajduje się 15 minut od centrum Warszawy. Jesteśmy otwarci od poniedziałku do piątku w godzinach 10-18, w soboty natomiast 12-18. Możesz do nas dojechać autobusem lini 123, wysiadając na przystanku Płocka 01.
 
+                <div id="contactDetails">
                 <br><br>
-               <div claas="contactRow">
-                <div class="contactPhoto">
-                    <img src="lokalizacja.png"></div>
-                <div class="contactText">Warszawa, ul. płocka 31 24-222</div>
-               </div>
-
+                <div class="contactText">Adres: Warszawa, ul. płocka 31 01-231</div>
                 <br>  <br>
-                <div claas="contactRow">
-                <div class="contactPhoto">
-                    <img src="telefon.png"></div>
-                <div class="contactText">517-537-136</div>
-                </div>
-
+                <div class="contactText">Telefon: 512-531-126</div>
                 <br>  <br>
-                    <div claas="contactRow">
-                <div class="contactPhoto">
-                    <img src="mail.png"></div>
-                <div class="contactText">mail: burasowa@outlook.pl</div>
-                    </div>
+                <div class="contactText">Mail: burasowa@outlook.pl</div>
+            </div>
 
             </div>
 
@@ -252,7 +233,6 @@
 
 
     </div>
-</div>
 
 </body>
 </html>

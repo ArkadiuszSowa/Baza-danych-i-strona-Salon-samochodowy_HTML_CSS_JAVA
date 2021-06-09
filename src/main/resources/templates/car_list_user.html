@@ -65,6 +65,32 @@
             margin-right: auto;
         }
 
+        #information
+        {
+            margin-left;
+            margin-right;
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        table {
+          border-collapse: collapse;
+
+        }
+
+        th, td {
+          text-align: left;
+          padding: 8px;
+        }
+
+        tr:nth-child(even){background-color: #f2f2f2}
+
+        th {
+          background-color: #04AA6D;
+          color: white;
+        }
+
+
         #footer
         {
             background-color: black;
@@ -95,6 +121,29 @@
             cursor: pointer;
         }
 
+        .button {
+          font-size: 14px;
+          background-color: #F1892D;
+          font-weight: bold;
+          display: inline-block;
+          padding: 9px 15px;
+          cursor: pointer;
+          text-align: center;
+          text-decoration: none;
+          outline: none;
+          color: #fff;
+          border: none;
+          border-radius: 15px;
+          box-shadow: 0 5px #999;
+        }
+
+        .button:hover {background-color: #FFB06A}
+
+        .button:active {
+          background-color: #3e8e41;
+          box-shadow: 0 5px #666;
+          transform: translateY(4px);
+        }
 
 
 </style>
@@ -118,9 +167,10 @@
 
     <div id="container">
 
-        <h1>Car Record</h1>
+        <br><br>
+        <h1>Lista dostępnych samochodów</h1>
         <!-- Entry to the new page -->
-
+        <div id="information">Aby bezpłatnie zarezerwować samochód wciśnij przycisk: "Zarezerwuj"</div>
 
         <!--        End line/ new line-->
         <!--        todo sprawdz to-->
@@ -152,7 +202,7 @@
                 <td th:text="${car.rodzaj_paliwa}">Rodzaj paliwa</td>
                 <td th:text="${car.typ}">Typ</td>
                 <td th:text="${car.cena}">Cena</td>
-                <td><a th:href="@{'/reserved/' + ${car.id_pojazdu}}">Zarezerwuj</a>  <!-- TODO zrobić stronę reserved, albo jakieś powiadomienie-->
+                <td><a th:href="@{'/reserved/' + ${car.id_pojazdu}}"><button class="button reserve">Zarezerwuj</button></a>  <!-- TODO zrobić stronę reserved, albo jakieś powiadomienie-->
 
                 </td>
             </tr>
