@@ -29,7 +29,7 @@ public class CarDAO {
     }
 
     public List<Car> list(){
-        String sql="SELECT  p.dostepny, p.rok_produkcji, p.cena, p.moc, p.rodzaj_paliwa, p.typ, mo.nazwa_modelu, ma.nazwa_marki FROM ((pojazdy p INNER JOIN modele mo ON mo.id_modelu=p.id_modelu) INNER JOIN marki ma ON ma.id_marki=mo.id_marki) WHERE p.dostepny='TAK'";
+        String sql="SELECT p.id_pojazdu, p.dostepny, p.rok_produkcji, p.cena, p.moc, p.rodzaj_paliwa, p.typ, mo.nazwa_modelu, ma.nazwa_marki FROM ((pojazdy p INNER JOIN modele mo ON mo.id_modelu=p.id_modelu) INNER JOIN marki ma ON ma.id_marki=mo.id_marki) WHERE p.dostepny='TAK'";
         List<Car> listCar=jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Car.class));
 
         return listCar;
@@ -71,6 +71,13 @@ public class CarDAO {
         BeanPropertySqlParameterSource param_car = new BeanPropertySqlParameterSource(car);
         insertActor.execute(param_car);
     }
+    public void reserved(Car car){
+        SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
+        insertActor.withTableName("pojazdy").usingColumns("id_pojazdu","dostepny","rok_produkcji","cena","nr_vin","pojemnosc_silnika","moc","rodzaj_paliwa","liczba_miejsc_siedzacych","typ","skrzynia_biegow","id_uslugi","id_salonu","id_modelu","id_koloru");
+        car.setDostepny("NIE");
+        BeanPropertySqlParameterSource param_car = new BeanPropertySqlParameterSource(car);
+        insertActor.execute(param_car);
+    }
 
     //read
     public Car get(int id_pojazdu){
@@ -84,6 +91,15 @@ public class CarDAO {
     //update
     public void update(Car car){
         String sql= "UPDATE POJAZDY SET dostepny=:dostepny, rok_produkcji=:rok_produkcji, cena=:cena, nr_vin=:nr_vin, pojemnosc_silnika=:pojemnosc_silnika, moc=:moc, rodzaj_paliwa=:rodzaj_paliwa, liczba_miejsc_siedzacych=:liczba_miejsc_siedzacych, typ=:typ, skrzynia_biegow=:skrzynia_biegow, id_modelu=:id_modelu WHERE id_pojazdu=:id_pojazdu";
+        BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(car);
+        NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
+
+        template.update(sql,param);
+    }
+
+    public void update_reserved(Car car){
+        String sql= "UPDATE POJAZDY SET dostepny=:dostepny, rok_produkcji=:rok_produkcji, cena=:cena, nr_vin=:nr_vin, pojemnosc_silnika=:pojemnosc_silnika, moc=:moc, rodzaj_paliwa=:rodzaj_paliwa, liczba_miejsc_siedzacych=:liczba_miejsc_siedzacych, typ=:typ, skrzynia_biegow=:skrzynia_biegow, id_modelu=:id_modelu WHERE id_pojazdu=:id_pojazdu";
+        car.setDostepny("NIE");
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(car);
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
 

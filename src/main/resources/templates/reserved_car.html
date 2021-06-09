@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="hhtp://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Zarezerwoj samochod</title>
+</head>
+
+<body>
+<div align="center">
+    <!--  Page header-->
+    <h1>Zarezerwoj samochod</h1>
+
+    <!--    End line/new line-->
+    <br/>
+    <form action="#" th:action="@{/update_reserved}" th:object="${car}" method="post">
+        <!--  Table-->
+        <table border="1" cellpadding="10">
+            <!--Table (1) row-->
+            <tr>
+                <td>Id:</td>
+                <td><input type="text" th:field="*{id_pojazdu}" readonly="readonly"></td>
+            </tr>
+            <tr>
+                <td>Dostepny:</td>
+                <td><input type="text" th:field="*{dostepny}"></td>
+            </tr>
+            <!--Table (2) row-->
+            <tr>
+                <td>Rok produkcji:</td>
+                <td><input type="text" th:field="*{rok_produkcji}"></td>
+            </tr>
+            <!--Table (3) row-->
+            <tr>
+                <td>Cena:</td>
+                <td><input type="text" th:field="*{cena}"></td>
+            </tr>
+            <!--Table (5) row-->
+            <tr>
+                <td>Pojemnosc silnika:</td>
+                <td><input type="text" th:field="*{pojemnosc_silnika}"></td>
+            </tr>
+            <!--Table (6) row-->
+            <tr>
+                <td>Moc:</td>
+                <td><input type="text" th:field="*{moc}"></td>
+            </tr>
+            <!--Table (7) row-->
+            <tr>
+                <td>Rodzaj paliwa:</td>
+                <td><input type="text" th:field="*{rodzaj_paliwa}"></td>
+            </tr>
+            <!--Table (8) row-->
+            <tr>
+                <td>Miejsca siedzace:</td>
+                <td><input type="text" th:field="*{liczba_miejsc_siedzacych}"></td>
+            </tr>
+            <!--Table (9) row-->
+            <tr>
+                <td>Typ:</td>
+                <td><input type="text" th:field="*{typ}"></td>
+            </tr>
+            <!--Table (10) row-->
+            <tr>
+                <td>Srzynia biegow:</td>
+                <td><input type="text" th:field="*{skrzynia_biegow}"></td>
+            </tr>
+            <!--Table (11) row-->
+            <tr>
+                <td>Id modelu:</td>
+                <td><input type="text" th:field="*{id_modelu}"></td>
+            </tr>
+
+            <!--Button save-->
+            <tr>
+                <td colspan="2"><button type="submit">Reserve</button></td>
+            </tr>
+
+        </table>
+    </form>
+</div>
+</body>
+</html>

@@ -89,6 +89,13 @@ public class AppController {
      return "redirect:/samochody";
     }
 
+    @RequestMapping(value = "/reserved",method = RequestMethod.POST)
+    public String reserved(@ModelAttribute("car") Car car){
+        dao.reserved(car);
+        return "redirect:/samochody";
+    }
+
+
     @RequestMapping("/edit/{id_pojazdu}")
     public ModelAndView showEditForm(@PathVariable(name = "id_pojazdu")int id_pojazdu){
      ModelAndView mav = new ModelAndView("edit_car");
@@ -97,6 +104,21 @@ public class AppController {
 
      return mav;
     }
+    //reserved
+    @RequestMapping("/reserved/{id_pojazdu}")
+    public ModelAndView showReservedForm(@PathVariable(name = "id_pojazdu")int id_pojazdu){
+        ModelAndView mav = new ModelAndView("reserved_car");
+        Car car = dao.get(id_pojazdu);
+        mav.addObject("car",car);
+
+        return mav;
+    }
+
+//    @RequestMapping(value = "/reserved",method = RequestMethod.POST)
+//    public String reserved(@ModelAttribute("car") Car car){
+//        dao.reserved(car);
+//        return "redirect:/samochody";
+//    }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String update(@ModelAttribute("car")Car car){
