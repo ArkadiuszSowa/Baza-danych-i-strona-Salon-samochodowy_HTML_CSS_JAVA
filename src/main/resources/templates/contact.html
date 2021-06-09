@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="hhtp://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>BuraSowa Company</title>
@@ -26,6 +28,23 @@
         {
             margin-left: 12px;
             float: left;
+        }
+
+         #login
+        {
+            min-width:50px;
+            height:25px;
+            font-size: 20px;
+            padding: 10px;
+            float: right;
+            margin-right: 12px;
+            color: white;
+        }
+
+        #login:hover
+        {
+            color: grey;
+            cursor: pointer;
         }
 
         #companyName
@@ -173,8 +192,14 @@
             <a href="\"><div class="option">Strona główna</div></a>
             <a href="samochody">  <div class="option">Nasze samochody</div></a>
             <a href="kontakt"> <div class="option">Kontakt</div></a>
-            <div style="clear:both"></div>
+
         </div>
+
+        <a href="login"><div id="login" th:text="${state}"></div></a>
+
+
+        <div style="clear:both"></div>
+
     </div>
 
     <div id="container">

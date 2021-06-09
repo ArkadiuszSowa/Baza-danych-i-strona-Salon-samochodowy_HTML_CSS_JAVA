@@ -70,6 +70,14 @@ public class AppController {
     @RequestMapping("/kontakt")
     public String contact(Model model){
 
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String role = authentication.getName();
+        if(role.equals("anonymousUser")){
+            model.addAttribute("state", "Zaloguj się");
+        }
+        else{
+            model.addAttribute("state", "Wyloguj się");
+        }
 
 
         return "contact";

@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html lang="pl">
+<html lang="pl"xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="hhtp://www.thymeleaf.org">
 <head>
     <meta charset="utf-8" />
     <title>BuraSowa Company</title>
@@ -179,7 +180,11 @@
         <a href="kontakt"> <div class="option">Kontakt</div></a>
 
     </div>
-    <a href="login"><div id="login">Zaloguj się</div></a>
+
+
+    <a href="login"><div id="login" th:text="${state}"></div></a>
+
+
     <div style="clear:both"></div>
 
 </div>
@@ -191,7 +196,7 @@
          <div id="middleContent">
 
           <div id="contentPhoto">
-              <img src="BuraSowa.jpg">
+              <img th:src="@{/BuraSowa.jpg}" />
           </div>
 
         <div id="contentText">
