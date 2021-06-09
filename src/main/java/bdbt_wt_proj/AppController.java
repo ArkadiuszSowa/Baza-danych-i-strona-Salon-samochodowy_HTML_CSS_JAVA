@@ -22,9 +22,6 @@ public class AppController {
  @RequestMapping("/samochody")
  public String viewCar(Model model){
 
-
-
-
      Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
      String role = authentication.getName();
 

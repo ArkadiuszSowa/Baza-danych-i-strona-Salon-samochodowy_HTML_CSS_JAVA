@@ -43,7 +43,7 @@ class CarDAOTest extends Object {
     @org.junit.jupiter.api.Test
     void save_modele() {
         List<Marki> listMarki = dao.list_marki();
-        System.out.println(listMarki.get(listMarki.size()-1).getId_marki());
+
         Modele modele = new Modele(0, "TEST", listMarki.get(listMarki.size()-1).getId_marki());
         dao.save_modele(modele);
     }
