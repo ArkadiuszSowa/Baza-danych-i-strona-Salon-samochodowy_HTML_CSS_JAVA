@@ -36,13 +36,13 @@ public class CarDAO {
     }
 
 
-
     public List<Modele> list_modele(){
-        String sql= "Select id_modelu, id_marki from modele";
+        String sql= "SELECT modele.id_modelu, modele.nazwa_modelu, marki.nazwa_marki FROM (modele INNER JOIN marki ON modele.id_marki=marki.id_marki)";
         List<Modele> listModele=jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Modele.class));
 
         return listModele;
     }
+
     public List<Marki> list_marki(){
         String sql= "Select id_marki from marki";
         List<Marki> listMarki=jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Marki.class));
@@ -71,13 +71,7 @@ public class CarDAO {
         BeanPropertySqlParameterSource param_car = new BeanPropertySqlParameterSource(car);
         insertActor.execute(param_car);
     }
-    public void reserved(Car car){
-        SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
-        insertActor.withTableName("pojazdy").usingColumns("id_pojazdu","dostepny","rok_produkcji","cena","nr_vin","pojemnosc_silnika","moc","rodzaj_paliwa","liczba_miejsc_siedzacych","typ","skrzynia_biegow","id_uslugi","id_salonu","id_modelu","id_koloru");
-        car.setDostepny("NIE");
-        BeanPropertySqlParameterSource param_car = new BeanPropertySqlParameterSource(car);
-        insertActor.execute(param_car);
-    }
+
 
     //read
     public Car get(int id_pojazdu){
@@ -98,7 +92,7 @@ public class CarDAO {
     }
 
     public void update_reserved(Car car){
-        String sql= "UPDATE POJAZDY SET dostepny=:dostepny, rok_produkcji=:rok_produkcji, cena=:cena, nr_vin=:nr_vin, pojemnosc_silnika=:pojemnosc_silnika, moc=:moc, rodzaj_paliwa=:rodzaj_paliwa, liczba_miejsc_siedzacych=:liczba_miejsc_siedzacych, typ=:typ, skrzynia_biegow=:skrzynia_biegow, id_modelu=:id_modelu WHERE id_pojazdu=:id_pojazdu";
+        String sql= "UPDATE POJAZDY SET dostepny=:dostepny WHERE id_pojazdu=:id_pojazdu";
         car.setDostepny("NIE");
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(car);
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);

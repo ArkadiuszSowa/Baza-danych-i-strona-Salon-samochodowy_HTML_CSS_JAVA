@@ -40,13 +40,16 @@ class CarDAOTest extends Object {
 //        dao.save_marki(marki);
 //    }
 
-    @org.junit.jupiter.api.Test
-    void save_modele() {
-        List<Marki> listMarki = dao.list_marki();
 
-        Modele modele = new Modele(0, "TEST", listMarki.get(listMarki.size()-1).getId_marki());
-        dao.save_modele(modele);
-    }
+    //dodawanie modelu po marce
+//
+//    @org.junit.jupiter.api.Test
+//    void save_modele() {
+//        List<Marki> listMarki = dao.list_marki();
+//
+//        Modele modele = new Modele(0, "TEST", listMarki.get(listMarki.size()-1).getId_marki());
+//        dao.save_modele(modele);
+//    }
 
     @org.junit.jupiter.api.Test
     void save() {

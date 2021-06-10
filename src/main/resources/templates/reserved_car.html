@@ -17,15 +17,15 @@
     <form action="#" th:action="@{/update_reserved}" th:object="${car}" method="post">
         <!--  Table-->
         <table border="1" cellpadding="10">
-            <!--Table (1) row-->
-            <tr>
-                <td>Id:</td>
-                <td><input type="text" th:field="*{id_pojazdu}" readonly="readonly"></td>
-            </tr>
-            <tr>
-                <td>Dostepny:</td>
-                <td><input type="text" th:field="*{dostepny}"></td>
-            </tr>
+<!--            &lt;!&ndash;Table (1) row&ndash;&gt;-->
+<!--            <tr>-->
+<!--                <td>Id:</td>-->
+<!--                <td><input type="text" th:field="*{id_pojazdu}" readonly="readonly"></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>Dostepny:</td>-->
+<!--                <td><input type="text" th:field="*{dostepny}"></td>-->
+<!--            </tr>-->
             <!--Table (2) row-->
             <tr>
                 <td>Rok produkcji:</td>
@@ -66,11 +66,11 @@
                 <td>Srzynia biegow:</td>
                 <td><input type="text" th:field="*{skrzynia_biegow}"></td>
             </tr>
-            <!--Table (11) row-->
-            <tr>
-                <td>Id modelu:</td>
-                <td><input type="text" th:field="*{id_modelu}"></td>
-            </tr>
+<!--            &lt;!&ndash;Table (11) row&ndash;&gt;-->
+<!--            <tr>-->
+<!--                <td>Id modelu:</td>-->
+<!--                <td><input type="text" th:field="*{id_modelu}"></td>-->
+<!--            </tr>-->
 
             <!--Button save-->
             <tr>

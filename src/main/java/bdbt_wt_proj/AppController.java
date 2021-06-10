@@ -21,10 +21,8 @@ public class AppController {
 
  @RequestMapping("/samochody")
  public String viewCar(Model model){
-
      Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
      String role = authentication.getName();
-
 
      List<Car> listCar;
      if(role.equals("admin")){
@@ -35,18 +33,17 @@ public class AppController {
      }
      model.addAttribute("listCar", listCar);
 
-
      return "car_list_"+role;
  }
 
  @RequestMapping("/new")
     public String showAddCar(Model model){
+     List<Modele> listModele;
+     listModele = dao.list_modele();
+     model.addAttribute("listModele", listModele);
      Car car = new Car();
-     Marki marki = new Marki();
-     Modele modele = new Modele();
      model.addAttribute("car", car);
-     model.addAttribute("modele", modele);
-     model.addAttribute("marki", marki);
+
      dao.update(car);
 
      return "add_car";
@@ -89,18 +86,22 @@ public class AppController {
      return "redirect:/samochody";
     }
 
-    @RequestMapping(value = "/reserved",method = RequestMethod.POST)
+    @RequestMapping(value = "/update_reserved",method = RequestMethod.POST)
     public String reserved(@ModelAttribute("car") Car car){
-        dao.reserved(car);
+        dao.update_reserved(car);
         return "redirect:/samochody";
     }
 
 
     @RequestMapping("/edit/{id_pojazdu}")
-    public ModelAndView showEditForm(@PathVariable(name = "id_pojazdu")int id_pojazdu){
+    public ModelAndView showEditForm(@PathVariable(name = "id_pojazdu")int id_pojazdu, Model model){
+        List<Modele> listModele;
+        listModele = dao.list_modele();
+        model.addAttribute("listModele", listModele);
      ModelAndView mav = new ModelAndView("edit_car");
      Car car = dao.get(id_pojazdu);
      mav.addObject("car",car);
+
 
      return mav;
     }

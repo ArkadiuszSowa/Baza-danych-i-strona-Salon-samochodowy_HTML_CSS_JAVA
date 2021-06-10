@@ -16,7 +16,7 @@
     <br/>
     <form action="#" th:action="@{/update}" th:object="${car}" method="post">
         <!--  Table-->
-        <table border="1" cellpadding="10">
+        <table border="1" cellpadding="10" style="display: inline-block;">
             <!--Table (1) row-->
             <tr>
                 <td>Id:</td>
@@ -81,6 +81,30 @@
             <tr>
                 <td colspan="2"><button type="submit">Save</button></td>
             </tr>
+
+        </table>
+
+        <table border="1" cellpadding="10" style="display: inline-block;">
+            <!-- Table header -->
+            <thead>
+            <tr>
+                <th>Id modelu</th>
+                <th>Marka</th>
+                <th>Model</th>
+            </tr>
+            </thead>
+
+            <!-- Table body-->
+            <tbody>
+            <tr th:each="modele:${listModele}">
+                <td th:text="${modele.id_modelu}">ID</td>
+                <td th:text="${modele.nazwa_marki}">Marka</td>
+                <td th:text="${modele.nazwa_modelu}">Model</td>
+
+            </tr>
+            </tbody>
+
+
 
         </table>
     </form>
