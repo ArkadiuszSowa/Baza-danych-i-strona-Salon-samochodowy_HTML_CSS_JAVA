@@ -33,12 +33,8 @@ public class Modele {
         this.nazwa_modelu = nazwa_modelu;
     }
 
-    public String getNazwa_marki() {
-        return nazwa_marki;
-    }
+    public String getNazwa_marki() { return nazwa_marki; }
 
-    public void setNazwa_marki(String nazwa_marki) {
-        this.nazwa_marki = nazwa_marki;
-    }
+    public void setNazwa_marki(String nazwa_marki) { this.nazwa_marki = nazwa_marki; }
 
 }

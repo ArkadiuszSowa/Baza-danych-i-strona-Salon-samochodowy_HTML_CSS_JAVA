@@ -6,13 +6,23 @@
     <meta charset="UTF-8">
     <title>Edytuj samochod</title>
 </head>
+<!--cssssss-->
+<style type="text/css">
+         #vin {
+           width: 11em;
+         }
+        #size_TAK_NIE {
+  width: 4em;
+}
+
+</style>
 
 <body>
 <div align="center">
     <!--  Page header-->
     <h1>Edytuj samochod</h1>
 
-    <!--    End line/new line-->
+
     <br/>
     <form action="#" th:action="@{/update}" th:object="${car}" method="post">
         <!--  Table-->
@@ -20,16 +30,21 @@
             <!--Table (1) row-->
             <tr>
                 <td>Id:</td>
-                <td><input type="text" th:field="*{id_pojazdu}" readonly="readonly"></td>
+                <td><input type="number" th:field="*{id_pojazdu}" readonly="readonly" ></td>
             </tr>
             <tr>
                 <td>Dostepny:</td>
-                <td><input type="text" th:field="*{dostepny}"></td>
+                <td><input type="text" th:field="*{dostepny}"  list="TAK_NIE" id="size_TAK_NIE"></td>
+                <!--                <span class="validity"></span>-->
             </tr>
+            <datalist id="TAK_NIE">
+                <option value="TAK">
+                <option value="NIE">
+            </datalist>
             <!--Table (2) row-->
             <tr>
                 <td>Rok produkcji:</td>
-                <td><input type="text" th:field="*{rok_produkcji}"></td>
+                <td><input type="number" th:field="*{rok_produkcji}" step="1" min="1866" max="3000"></td>
             </tr>
             <!--Table (3) row-->
             <tr>
@@ -39,38 +54,61 @@
             <!--Table (4) row-->
             <tr>
                 <td>Nr VIN:</td>
-                <td><input type="text" th:field="*{nr_vin}"></td>
+                <td><input type="text" th:field="*{nr_vin}" id="vin"></td>
             </tr>
             <!--Table (5) row-->
             <tr>
                 <td>Pojemnosc silnika:</td>
-                <td><input type="text" th:field="*{pojemnosc_silnika}"></td>
+                <td><input type="number" th:field="*{pojemnosc_silnika}" step="0.1" min="0" max="100"></td>
             </tr>
             <!--Table (6) row-->
             <tr>
                 <td>Moc:</td>
-                <td><input type="text" th:field="*{moc}"></td>
+                <td><input type="number" th:field="*{moc}" step="1" min="0" max="10000"></td>
             </tr>
             <!--Table (7) row-->
             <tr>
                 <td>Rodzaj paliwa:</td>
-                <td><input type="text" th:field="*{rodzaj_paliwa}"></td>
+                <td><input type="text" th:field="*{rodzaj_paliwa}" list="rodzaj_paliwa"></td>
             </tr>
+            <datalist id="rodzaj_paliwa">
+                <option value="Diesel">
+                <option value="Benzyna">
+                <option value="Benzyna+LPG">
+                <option value="LPG">
+                <option value="Elektryczny">
+            </datalist>
             <!--Table (8) row-->
             <tr>
                 <td>Miejsca siedzace:</td>
-                <td><input type="text" th:field="*{liczba_miejsc_siedzacych}"></td>
+                <td><input type="number" th:field="*{liczba_miejsc_siedzacych}" step="1" min="1" max="200"></td>
             </tr>
             <!--Table (9) row-->
             <tr>
                 <td>Typ:</td>
-                <td><input type="text" th:field="*{typ}"></td>
+                <td><input type="text" th:field="*{typ}" list="typ"></td>
             </tr>
+            <datalist id="typ">
+                <option value="Sedan">
+                <option value="Kombi">
+                <option value="SUV">
+                <option value="Coupe">
+                <option value="Hatchback">
+                <option value="Minivan">
+                <option value="VAN">
+                <option value="Kabriolet">
+                <option value="Liftback">
+                <option value="PICK UP">
+            </datalist>
             <!--Table (10) row-->
             <tr>
                 <td>Srzynia biegow:</td>
-                <td><input type="text" th:field="*{skrzynia_biegow}"></td>
+                <td><input type="text" th:field="*{skrzynia_biegow}" list="skrzynia"></td>
             </tr>
+            <datalist id="skrzynia">
+                <option value="Manualna">
+                <option value="Automatyczna">
+            </datalist>
             <!--Table (11) row-->
             <tr>
                 <td>Id modelu:</td>
@@ -79,7 +117,9 @@
 
             <!--Button save-->
             <tr>
-                <td colspan="2"><button type="submit">Save</button></td>
+                <td colspan="2">
+                    <button type="submit">Save</button>
+                </td>
             </tr>
 
         </table>
@@ -103,7 +143,6 @@
 
             </tr>
             </tbody>
-
 
 
         </table>
