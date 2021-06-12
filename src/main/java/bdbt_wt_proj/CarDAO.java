@@ -67,7 +67,7 @@ public class CarDAO {
     //insert
     public void save(Car car){
         SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
-        insertActor.withTableName("pojazdy").usingColumns("id_pojazdu","dostepny","rok_produkcji","cena","nr_vin","pojemnosc_silnika","moc","rodzaj_paliwa","liczba_miejsc_siedzacych","typ","skrzynia_biegow","id_salonu","id_modelu","id_koloru");
+        insertActor.withTableName("pojazdy").usingColumns("id_pojazdu","dostepny","rok_produkcji","cena","nr_vin","pojemnosc_silnika","moc","rodzaj_paliwa","liczba_miejsc_siedzacych","typ","skrzynia_biegow","id_uslugi","id_salonu","id_modelu","id_koloru");
         BeanPropertySqlParameterSource param_car = new BeanPropertySqlParameterSource(car);
         insertActor.execute(param_car);
     }

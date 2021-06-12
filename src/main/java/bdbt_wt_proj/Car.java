@@ -12,10 +12,10 @@ public class Car {
     private int liczba_miejsc_siedzacych;
     private String typ;
     private String skrzynia_biegow;
-    private int id_uslugi;
+    private int id_uslugi=11;
     private int id_salonu;
     private int id_modelu;
-    private int id_koloru;
+    private int id_koloru=42;
     private String nazwa_modelu;
     private String nazwa_marki;
 
