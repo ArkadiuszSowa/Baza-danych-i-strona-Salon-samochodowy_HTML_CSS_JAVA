@@ -17,7 +17,7 @@
     <form action="#" th:action="@{/update_reserved}" th:object="${car}" method="post">
         <!--  Table-->
         <table border="1" cellpadding="10">
-            <!--Table (1) row-->
+
             <tr>
                 <td>Id:</td>
                 <td><input type="text" th:field="*{id_pojazdu}" readonly="readonly"></td>
@@ -26,7 +26,7 @@
                 <td>Dostepny:</td>
                 <td><input type="text" th:field="*{dostepny}" readonly="readonly"></td>
             </tr>
-            Table (2) row
+
             <tr>
                 <td>Rok produkcji:</td>
                 <td><input type="text" th:field="*{rok_produkcji}" readonly="readonly"></td>
@@ -74,7 +74,7 @@
 
             <!--Button save-->
             <tr>
-                <td colspan="2"><button type="submit">Reserve</button></td>
+                <td colspan="2"><button type="submit">Zarezerwuj</button></td>
             </tr>
 
         </table>
