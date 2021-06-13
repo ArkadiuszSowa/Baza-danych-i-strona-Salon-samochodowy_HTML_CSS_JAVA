@@ -87,7 +87,7 @@ public class AppController {
     }
 
     @RequestMapping(value = "/update_reserved",method = RequestMethod.POST)
-    public String reserved(@ModelAttribute("car") Car car){
+    public String update_reserved(@ModelAttribute("car") Car car){
         dao.update_reserved(car);
         return "redirect:/samochody";
     }
